@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 
+
 string allow = "abcdefghijklmnopqrstuvwxyz1234567890";
 string test;
 Console.WriteLine("Введите ваш пароль без спец. символов");
@@ -7,19 +8,21 @@ string password = Console.ReadLine().ToLower();
 
 var stopwatch = new Stopwatch();
 stopwatch.Start();
+Random rnd = new Random();
 
 while (true)
 {
     test = "";
     for (int i = 0; i < password.Length; i++)
     {
-        Random rnd = new Random();
+        
         test += allow[rnd.Next(0, 36)];
 
     }
-    Console.WriteLine(test);
+    
     if (test == password)
     {
+        Console.WriteLine(test);
         break;
     }
 }
